@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect x="12" y="12" width="104" height="104" rx="22" fill="#5E6AD2"/>
+  <!-- Left primary specimen column -->
+  <rect x="28" y="28" width="40" height="72" rx="8" fill="#F8F9FB"/>
+  <!-- Top-right carbon ink swatch -->
+  <rect x="76" y="28" width="24" height="32" rx="7" fill="#111215"/>
+  <!-- Bottom-right translucent paper swatch -->
+  <rect x="76" y="68" width="24" height="32" rx="7" fill="#F8F9FB" fill-opacity="0.55"/>
+</svg>

@@ -1,0 +1,11 @@
+{
+  "extName": {
+    "message": "Design Decoder - Live Design System & DESIGN.md Exporter"
+  },
+  "extDesc": {
+    "message": "Decode any webpage's live design system: area-weighted palette (HEX/OKLCH), type scale, tokens, and one-click DESIGN.md export."
+  },
+  "actionTitle": {
+    "message": "Open Design Decoder"
+  }
+}

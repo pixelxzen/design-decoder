@@ -1,0 +1,11 @@
+{
+  "extName": {
+    "message": "设计解构卡 Design Decoder"
+  },
+  "extDesc": {
+    "message": "一键解构任意网页的真实渲染设计系统：面积加权色板（HEX/OKLCH）、字体阶梯、圆角阴影令牌与品牌资产，直接导出 DESIGN.md。"
+  },
+  "actionTitle": {
+    "message": "打开设计解构卡 (Design Decoder)"
+  }
+}

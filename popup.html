@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design Decoder</title>
+  <link rel="stylesheet" href="styles/panel.css">
+</head>
+<body data-surface="popup">
+  <main class="shell" id="app">
+    <!-- Top Precision Header -->
+    <header class="topbar">
+      <div class="brand-group">
+        <img class="brand-mark" src="icons/icon48.png" alt="Design Decoder">
+        <div class="brand-titles">
+          <div class="brand-title-row">
+            <span class="brand-name">Design Decoder</span>
+            <span class="badge-version">v1.0.0</span>
+          </div>
+          <span class="target-meta" id="target-subtitle">实时计算样式解构</span>
+        </div>
+      </div>
+
+      <div class="toolbar-actions">
+        <button class="icon-btn" id="btn-inspect" type="button" title="Toggle In-Page Element HUD (⌘I)">
+          <span class="t-icon-swap" id="inspect-icon-swap" data-state="a">
+            <span class="t-icon" data-icon="a">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+            </span>
+            <span class="t-icon" data-icon="b">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+            </span>
+          </span>
+          <span id="inspect-label">探针</span>
+        </button>
+
+        <button class="icon-btn" id="btn-theme" type="button" aria-label="Toggle Theme">
+          <span class="t-icon-swap" id="theme-icon-swap" data-state="a">
+            <span class="t-icon" data-icon="a">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            </span>
+            <span class="t-icon" data-icon="b">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+          </span>
+        </button>
+
+        <button class="btn-primary" id="btn-copy-md" type="button">
+          <span class="t-icon-swap" id="copy-md-swap" data-state="a">
+            <span class="t-icon" data-icon="a">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </span>
+            <span class="t-icon" data-icon="b">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+          </span>
+          <span id="copy-md-label">复制 MD</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Active Domain & Reference Benchmark Switcher -->
+    <section class="site-bar" aria-label="Target Website">
+      <div class="site-domain-wrap">
+        <span class="status-dot"></span>
+        <span class="site-domain" id="site-domain">linear.app</span>
+      </div>
+      <select class="preset-select" id="preset-select" aria-label="Reference Design System">
+        <option value="linear.app">Linear.app</option>
+        <option value="claude.ai">Claude.ai (CDS)</option>
+        <option value="vercel.com">Vercel.com (Geist)</option>
+      </select>
+    </section>
+
+    <!-- Area-Weighted Spectrum Strip -->
+    <section class="spectrum-card" id="hero-spectrum">
+      <div class="spectrum-header">
+        <span class="spectrum-title" id="spectrum-title">面积加权色彩分布</span>
+        <span class="tabular" id="spectrum-stats">1420 节点 · 38ms</span>
+      </div>
+      <div class="spectrum-bar" id="spectrum-bar"></div>
+      <div class="spectrum-legend" id="spectrum-legend"></div>
+    </section>
+
+    <!-- transitions.dev 16-tabs-sliding Navigation -->
+    <nav class="t-tabs" role="tablist" aria-label="Decoder Views">
+      <span class="t-tabs-pill" aria-hidden="true"></span>
+      <button class="t-tab" role="tab" data-tab="palette" id="tab-palette" aria-selected="true">色板</button>
+      <button class="t-tab" role="tab" data-tab="typography" id="tab-typography" aria-selected="false">字体</button>
+      <button class="t-tab" role="tab" data-tab="tokens" id="tab-tokens" aria-selected="false">令牌</button>
+      <button class="t-tab" role="tab" data-tab="assets" id="tab-assets" aria-selected="false">资产</button>
+      <button class="t-tab" role="tab" data-tab="export" id="tab-export" aria-selected="false">导出</button>
+    </nav>
+
+    <!-- View 1: Palette -->
+    <section class="view-panel is-active" id="panel-palette" role="tabpanel">
+      <div class="section-bar">
+        <span class="section-label" id="lbl-palette-head">页面计算色板 (点击复制)</span>
+        <div class="pill-toggle-group" role="group" aria-label="Color Space">
+          <button class="pill-btn" type="button" data-color-fmt="hex" aria-pressed="true">HEX</button>
+          <button class="pill-btn" type="button" data-color-fmt="oklch" aria-pressed="false">OKLCH</button>
+        </div>
+      </div>
+      <div class="swatch-list" id="swatch-list"></div>
+    </section>
+
+    <!-- View 2: Typography -->
+    <section class="view-panel" id="panel-typography" role="tabpanel">
+      <div class="section-bar">
+        <span class="section-label" id="lbl-type-family">主字体栈与激活字重</span>
+      </div>
+      <div class="font-family-box">
+        <div class="swatch-values"><span style="color:var(--ink);font-weight:600">Primary:</span> <span id="primary-font-val"></span></div>
+        <div class="swatch-values"><span style="color:var(--ink);font-weight:600">Mono:</span> <span id="mono-font-val"></span></div>
+        <div class="weight-pills" id="weight-pills"></div>
+      </div>
+      <div class="section-bar">
+        <span class="section-label" id="lbl-type-scale">排版阶梯实测 (Type Scale)</span>
+      </div>
+      <div class="swatch-list" id="type-scale-list"></div>
+    </section>
+
+    <!-- View 3: Surface & Root Tokens -->
+    <section class="view-panel" id="panel-tokens" role="tabpanel">
+      <div class="section-bar">
+        <span class="section-label" id="lbl-radii-head">圆角几何分布 (Concentric Radii)</span>
+      </div>
+      <div class="token-grid" id="radii-grid"></div>
+      <div class="section-bar">
+        <span class="section-label" id="lbl-vars-head">根级 CSS 变量 (:root)</span>
+      </div>
+      <input class="filter-input" id="var-filter" type="search" placeholder="筛选 --token 变量名或色值…">
+      <div class="vars-table" id="vars-table"></div>
+    </section>
+
+    <!-- View 4: Brand Assets -->
+    <section class="view-panel" id="panel-assets" role="tabpanel">
+      <div class="section-bar">
+        <span class="section-label" id="lbl-assets-head">品牌标识与媒体资产</span>
+      </div>
+      <div class="swatch-list" id="assets-list"></div>
+    </section>
+
+    <!-- View 5: Export DESIGN.md / CSS / JSON -->
+    <section class="view-panel" id="panel-export" role="tabpanel">
+      <div class="section-bar">
+        <span class="section-label" id="lbl-export-head">一键导出规范文档</span>
+        <div class="pill-toggle-group" role="group" aria-label="Export Format">
+          <button class="pill-btn" type="button" data-export-fmt="md" aria-pressed="true">DESIGN.md</button>
+          <button class="pill-btn" type="button" data-export-fmt="css" aria-pressed="false">tokens.css</button>
+          <button class="pill-btn" type="button" data-export-fmt="json" aria-pressed="false">JSON</button>
+        </div>
+      </div>
+      <div class="export-actions">
+        <button class="btn-primary" id="btn-export-copy" type="button">
+          <span id="btn-export-copy-txt">复制内容</span>
+        </button>
+        <button class="icon-btn" id="btn-export-dl" type="button" style="height:30px">
+          <span id="btn-export-dl-txt">下载文件</span>
+        </button>
+      </div>
+      <pre class="code-preview" id="export-preview"></pre>
+    </section>
+  </main>
+
+  <!-- transitions.dev 22-toast Notification -->
+  <div class="t-toast" id="toast" role="status" aria-live="polite">
+    <span id="toast-msg">已复制到剪贴板</span>
+    <span class="tabular" id="toast-detail" style="opacity:0.75"></span>
+  </div>
+
+  <script type="module" src="scripts/app.js"></script>
+</body>
+</html>

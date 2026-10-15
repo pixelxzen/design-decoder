@@ -1,0 +1,12 @@
+{
+  "name": "design-decoder",
+  "version": "1.0.0",
+  "description": "Decode any webpage's rendered design system into a precision card and export DESIGN.md.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node tests/verify.mjs",
+    "test": "node tests/verify.mjs"
+  },
+  "license": "MIT"
+}

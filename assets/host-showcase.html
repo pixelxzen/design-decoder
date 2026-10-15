@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    width: 879px;
+    height: 726px;
+    overflow: hidden;
+    background: #08090a;
+    color: #f7f8f8;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "PingFang SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .nav {
+    height: 56px;
+    padding: 0 40px;
+    border-bottom: 1px solid #222326;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+  }
+  .nav-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    background: #5e6ad2;
+  }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    font-size: 13px;
+    color: #8a8f98;
+  }
+  .hero {
+    padding: 54px 48px 32px;
+    position: relative;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    background: #121316;
+    border: 1px solid #222326;
+    font-family: "SF Mono", ui-monospace, monospace;
+    font-size: 11px;
+    color: #8a8f98;
+    margin-bottom: 20px;
+  }
+  h1 {
+    margin: 0 0 16px;
+    font-size: 46px;
+    line-height: 1.06;
+    letter-spacing: -0.032em;
+    font-weight: 600;
+    max-width: 680px;
+  }
+  .lead {
+    margin: 0 0 28px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #8a8f98;
+    max-width: 560px;
+  }
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+  }
+  .btn-cta {
+    background: #5e6ad2;
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    position: relative;
+  }
+  .btn-ghost {
+    background: #121316;
+    color: #f7f8f8;
+    border: 1px solid #222326;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  /* Live Precision HUD Inspector overlay on the CTA button */
+  .hud-reticle {
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    width: 142px;
+    height: 44px;
+    border: 1.5px solid #5e6ad2;
+    background: rgba(94, 106, 210, 0.12);
+    border-radius: 8px;
+  }
+  .hud-card {
+    position: absolute;
+    left: 0;
+    top: 48px;
+    background: #121316;
+    border: 1px solid #5e6ad2;
+    border-radius: 8px;
+    padding: 10px 12px;
+    width: 280px;
+    font-family: "SF Mono", ui-monospace, monospace;
+    font-size: 11px;
+    line-height: 1.55;
+    z-index: 10;
+  }
+  .hud-head {
+    color: #5e6ad2;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .hud-line {
+    color: #8a8f98;
+    display: flex;
+    justify-content: space-between;
+  }
+  .hud-val { color: #f7f8f8; }
+  /* Bento telemetry cards below */
+  .bento {
+    margin: 120px 48px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .bento-card {
+    background: #121316;
+    border: 1px solid #222326;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .bento-kicker {
+    font-family: "SF Mono", ui-monospace, monospace;
+    font-size: 11px;
+    color: #5e6ad2;
+    margin-bottom: 6px;
+  }
+  .bento-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .bento-desc {
+    font-size: 12px;
+    color: #8a8f98;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-brand"><span class="nav-dot"></span><span>Linear</span></div>
+    <div class="nav-links"><span>Features</span><span>Method</span><span>Customers</span><span>Changelog</span></div>
+  </header>
+  <section class="hero">
+    <div class="eyebrow"><span>ENG-204</span><span>·</span><span>PRECISION DESIGN SYSTEM</span></div>
+    <h1>Purpose-built for product development</h1>
+    <p class="lead">Linear streamlines issues, projects, and product roadmaps with sub-millisecond keyboard navigation and high-contrast telemetry surfaces.</p>
+    <div class="cta-row">
+      <div class="btn-cta">Start building</div>
+      <div class="btn-ghost">Read documentation</div>
+      <div class="hud-reticle"></div>
+      <div class="hud-card">
+        <div class="hud-head"><span>button.btn-cta</span><span>134×36</span></div>
+        <div class="hud-line"><span>bg:</span><span class="hud-val">#5e6ad2 · oklch(0.562 0.164 274)</span></div>
+        <div class="hud-line"><span>color:</span><span class="hud-val">#ffffff · 4.7:1 AA</span></div>
+        <div class="hud-line"><span>font / radius:</span><span class="hud-val">13px w500 · r=6px</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="bento">
+    <div class="bento-card">
+      <div class="bento-kicker">01 · SURFACE</div>
+      <div class="bento-title">Carbon Obsidian #08090a</div>
+      <div class="bento-desc">58.4% viewport area share with 19.2:1 AAA ink contrast.</div>
+    </div>
+    <div class="bento-card">
+      <div class="bento-kicker">02 · TYPOGRAPHY</div>
+      <div class="bento-title">InterVariable & Mono</div>
+      <div class="bento-desc">Optical tracking -0.032em on display headers, tabular-nums on metrics.</div>
+    </div>
+    <div class="bento-card">
+      <div class="bento-kicker">03 · GEOMETRY</div>
+      <div class="bento-title">Concentric Hairlines</div>
+      <div class="bento-desc">8px card radius paired with 6px interactive controls and 1px borders.</div>
+    </div>
+  </section>
+</body>
+</html>

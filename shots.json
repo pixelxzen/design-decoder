@@ -1,0 +1,97 @@
+{
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "urlPath": "/sidepanel.html",
+  "layout": {
+    "mode": "sidepanel",
+    "panelWidth": 400,
+    "hostUrl": "linear.app/features",
+    "hostTitle": "Linear — Plan and build products",
+    "hostImage": "./assets/host-showcase.png"
+  },
+  "allowNetwork": false,
+  "useChromeStubs": true,
+  "ready": {
+    "selectors": [
+      "#app",
+      "#swatch-list .swatch-row"
+    ],
+    "delayMs": 300
+  },
+  "shots": [
+    {
+      "name": "01-palette-spectrum",
+      "actions": [
+        {
+          "type": "evaluate",
+          "script": "window.__DESIGN_DECODER__.selectPreset('linear.app'); window.__DESIGN_DECODER__.selectTab('palette'); window.__DESIGN_DECODER__.setColorFormat('hex');"
+        },
+        {
+          "type": "wait",
+          "ms": 250
+        }
+      ],
+      "elements": [
+        {
+          "selector": "#app",
+          "name": "hero-panel"
+        }
+      ]
+    },
+    {
+      "name": "02-oklch-claude-cds",
+      "actions": [
+        {
+          "type": "evaluate",
+          "script": "window.__DESIGN_DECODER__.selectPreset('claude.ai'); window.__DESIGN_DECODER__.selectTab('palette'); window.__DESIGN_DECODER__.setColorFormat('oklch');"
+        },
+        {
+          "type": "wait",
+          "ms": 250
+        }
+      ]
+    },
+    {
+      "name": "03-typography-scale",
+      "actions": [
+        {
+          "type": "evaluate",
+          "script": "window.__DESIGN_DECODER__.selectPreset('linear.app'); window.__DESIGN_DECODER__.selectTab('typography');"
+        },
+        {
+          "type": "wait",
+          "ms": 250
+        }
+      ]
+    },
+    {
+      "name": "04-surface-tokens",
+      "actions": [
+        {
+          "type": "evaluate",
+          "script": "window.__DESIGN_DECODER__.selectPreset('linear.app'); window.__DESIGN_DECODER__.selectTab('tokens');"
+        },
+        {
+          "type": "wait",
+          "ms": 250
+        }
+      ]
+    },
+    {
+      "name": "05-export-design-md",
+      "actions": [
+        {
+          "type": "evaluate",
+          "script": "window.__DESIGN_DECODER__.selectPreset('linear.app'); window.__DESIGN_DECODER__.selectTab('export'); window.__DESIGN_DECODER__.setExportFormat('md');"
+        },
+        {
+          "type": "wait",
+          "ms": 250
+        }
+      ]
+    }
+  ],
+  "colorScheme": "dark"
+}

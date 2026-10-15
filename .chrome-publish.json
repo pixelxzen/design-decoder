@@ -1,0 +1,13 @@
+{
+  "build": false,
+  "check": "npm run check",
+  "exclude": [
+    "tests/**",
+    "shots.json",
+    "assets/**",
+    "DESIGN.md",
+    "icons/icon-source.svg",
+    "icons/icon-small.svg"
+  ],
+  "extensionId": "bgnoocgpnclfbjnjbbhkpangleipkkkc"
+}
