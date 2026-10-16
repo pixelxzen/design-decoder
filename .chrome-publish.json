@@ -9,5 +9,9 @@
     "icons/icon-source.svg",
     "icons/icon-small.svg"
   ],
-  "extensionId": "bgnoocgpnclfbjnjbbhkpangleipkkkc"
+  "extensionId": "bgnoocgpnclfbjnjbbhkpangleipkkkc",
+  "listingLocales": [
+    "en",
+    "zh_CN"
+  ]
 }
